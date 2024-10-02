@@ -27,7 +27,7 @@ async def command_start_handler(message: Message) -> None:
 
 
 async def main() -> None:
-    BOT_TOKEN = getenv("TOKEN")
+    BOT_TOKEN = getenv("BOT_TOKEN")
     bot = Bot(BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     dp = Dispatcher()
     dp.include_router(root_router)

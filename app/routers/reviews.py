@@ -2,7 +2,7 @@ from aiogram import Router, F
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 
-from app.forms.review import ReviewForm
+from app.forms.clinic import ReviewForm
 from app.data import list_files, files_actions
 
 
