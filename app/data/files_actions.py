@@ -27,7 +27,7 @@ def del_product(product):
     products.remove(product)
     save_file(products)
 
-    return f"Товар '{product}' успішно видалено"
+    return f"Пацієнта'{product}' успішно видалено"
 
 
 def sold_product(product, path: str = list_files.CURED_ANIMAL) -> str:
@@ -37,7 +37,7 @@ def sold_product(product, path: str = list_files.CURED_ANIMAL) -> str:
     sold_products.append(product)
     save_file(sold_products, path)
 
-    return f"Товар '{product}' успішно продано."
+    return f"Пацієнта '{product}' успішно вилікувано."
 
 
 def add_product(product, path: str = list_files.PATIENTS) -> str:
@@ -49,5 +49,16 @@ def add_product(product, path: str = list_files.PATIENTS) -> str:
         msg = f"Товар '{product}' успішно додано."
     else:
         msg = f"товар '{product}' вже є у списку товарів."
+
+    return msg
+
+def add_review(product, path: str = list_files.REVIEWS) -> str:
+    products = open_file(path)
+
+
+    products.append(product)
+    save_file(products,path)
+    msg = f"Відгук '{product}' успішно додано."
+    
 
     return msg

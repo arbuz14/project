@@ -36,7 +36,7 @@ async def service_actions(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer(text=f"Обрано послугу: {service}")
 
 # Відгуки
-@clinic_router.message(F.text == "Залишити відгук")
+@clinic_router.message(F.text == "Додати новий відгук")
 async def leave_review(message: Message, state: FSMContext):
     await state.clear()
     await state.set_state(ReviewForm.text)
@@ -46,7 +46,7 @@ async def leave_review(message: Message, state: FSMContext):
 async def save_review(message: Message, state: FSMContext):
     data = await state.update_data(text=message.text)
     await state.clear()
-    msg = files_actions.save_review(data.get("text"))
+    msg = files_actions.add_review(data.get("text"))
     await message.answer(text=f"Ваш відгук збережено: {msg}")
 
 # Показати візити
