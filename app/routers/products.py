@@ -22,16 +22,17 @@ async def patient_actions(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer(text=patient, reply_markup=keyboard)
 
 # Прийоми
-@clinic_router.callback_query(F.data.startswith("visit_patient_"))
+@clinic_router.callback_query(F.data.startswith("cured_animal_"))
 async def visit_patient(callback: CallbackQuery, state: FSMContext):
     patient = callback.data.split("_")[-1]
-    msg = files_actions.schedule_visit(patient)
+    msg = files_actions.sold_product(patient)
     await callback.message.answer(text=msg)
 
 # Послуги
-@clinic_router.callback_query(F.data.startswith("service_"))
+@clinic_router.callback_query(F.data.startswith("delete_animal_"))
 async def service_actions(callback: CallbackQuery, state: FSMContext):
     service = callback.data.split("_")[-1]
+    msg = files_actions.del_product(service)
     await callback.message.answer(text=f"Обрано послугу: {service}")
 
 # Відгуки

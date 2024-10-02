@@ -17,12 +17,11 @@ root_router = Router()
 root_router.include_routers(clinic_router,review_router,start_router)
 
 
-@root_router.message(CommandStart())
-async def command_start_handler(message: Message) -> None:
-    await message.answer(
-    f"Вітаю в ветклініці, {hbold(message.from_user.full_name)}! "
-    "Ми готові допомогти вашому улюбленцю. Ви можете записатися на прийом або отримати консультацію."
-)
+#@root_router.message(CommandStart())
+#async def command_start_handler(message: Message) -> None:
+    #await message.answer(
+    #f"Вітаю в ветклініці, {hbold(message.from_user.full_name)}! "
+    #"Ми готові допомогти вашому улюбленцю. Ви можете записатися на прийом або отримати консультацію.")
 
 
 
